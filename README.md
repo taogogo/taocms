@@ -27,3 +27,8 @@ taoCMS是一个完善支持多数据库(Sqlite/Mysql)的CMS网站内容管理系
 13. 在BAE/SAE等云服务器修改模板无需在本地生成缓存
 14. 修正sqlite的一个特殊字符写入失败错误(感谢Ethan)
 15. 修复安全问题，感谢shack2、kobin97、yy520
+
+##官方支持
+
+* [官方网站](http://www.taocms.org/) 
+* [官方论坛](http://taobbs.sinaapp.com/)
