@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/> 
+<link rel="stylesheet" href="images/mobile.css" type="text/css"/> 
+<title>{addtitle}{webname}</title> 
+</head> 
+<body> 
+<div class="wapbody"> 
+<p id="logo"><img src="images/logo.gif" alt="{webname}" /></p> 
+<p class='artitle'><a href="{weburl}wap/" name="waptop" >{webname}首页</a><!-- $cats AS $key=> $v -->
+		<!-- if($v['status']==1) -->.<a href="?cat={key}" >{v['name']}</a><!-- end -->
+<!-- END --> </div>
+<div class="waptitle"><a href="{weburl}">{webname}文章</a></div> 
+<p class='artitle'>
+<!-- $o AS $atl -->
+		<a href="?id={atl['id']}" rel="bookmark" title="Permanent Link to  {atl['name']}">{atl['name']}</a><br />
+	<!-- END -->  
+<!-- IF[$_i==0] -->  
+<font color="#800000">抱歉，系统内没有文章!</font>  
+<!-- END --> 
+	<!--循环结束-->
+	
+	
+	<div class="navigation">
+		<!-- if($page!=0) --><div class="floatLeft"><a href="?p={uppage}{addtail}" }}">&laquo; 上一页</a></div><!-- end -->
+		<!-- if($downpage!=$page) --><div class="floatRight"><a href="?p={downpage}{addtail}">下一页 &raquo;</a></div><!-- end -->
+	</div>
+</p>
+<div class="waptitle">{webname}评论</div> 
+<!-- $recnetcmts AS $v -->
+		{v['name']}说<a href="?id={v['article_id']}">{run:}echo Base::cutStr($v['content'],10);{/run}</a><br />
+<!-- END --> 
+<p class="center"><a href="#waptop">↑Top</a></p> 
+<div class="waptitle">友情链接</div> 
+<a href="http://www.tiancai.me/">励志文章</a> <a href="http://www.jingmiyq.com/">中国精密仪器</a>
+<p class="center"><img src="images/time.gif"/>报时:{run:}echo Base::getnowtime('Y-m-d H:i:s');{/run}</p> 
+<p class="copyright">Powered by©<a href="http://www.taocms.org">taoCMS</a></p> 
+</div> 
+</body> 
+</html> 

@@ -1,0 +1,20 @@
+*{ margin:0px; padding:0px;}
+body {width:100%; margin:0px auto; border:1px solid #FDF2DC;}
+img{max-width:124px; max-height:93px; height:auto; width:auto;}
+a{ text-decoration:none; color:#3366CC; padding:0px;}
+a:hover{ text-decoration:underline; color:#8E1D22;}
+form{ display:inline;}
+ul{ margin:0px; padding:0px;}
+div.wapbody{ margin:0px;}
+div.content p{ text-indent:28px;}
+div.content P{ text-indent:28px;}
+form{margin:0px;}
+div.waptitle{ background:#FDF2DC ;color:#3366CC; text-indent:2px; font-weight:bold; padding:1px 0px; border:1px #FED585 solid; margin:1px 0px;}
+p.copyright{ text-align:center;}
+p.artitle{ line-height:17px; margin:1px 2px;}
+p.showpic{ text-align:center; max-width:220px;}
+p.center{ text-align:center;}
+p.detaltext{ width:100%; }
+p#logo{ text-align:center;}
+p.weather{ text-align:center;}
+.alert{ color:#FF0000;}

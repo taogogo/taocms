@@ -1,0 +1,28 @@
+{inc:header}
+<div class="controlban"><a href="?action=category&ctrl=add">+添加</a><!-- IF[CREATHTML==1] --><a href="?action=category&ctrl=createhtml">[生成栏目静态]</a><!-- end --><a href="?action=category&ctrl=updateurl" onclick="return confirm('确认重置URL？本操作将根据设定的url规则重新生成url')">重置URL</a><a href="?action=category&ctrl=createcache">生成栏目缓存</a></div>
+<table width="813" border="0" cellspacing="0" cellpadding="1" class="list">
+<tr>
+  <th >ID</th>
+<th >栏目</th>
+<th >介绍</th>
+<th>状态</th>
+<th>排序</th>
+<th>操作</th>
+</tr>
+<!-- $list AS $atl -->  
+  <tr onmouseover="this.style.backgroundColor='#F4F4F4'" onmouseout="this.style.backgroundColor=''">
+    <td>{atl['id']}</td>
+    <td><a href="?action=category&id={atl['id']}&ctrl=edit">{atl['name']}</a></td>
+	<td>{atl['intro']}</td>
+    <td>{run:}echo Base::catstatus($atl['status']);{/run}</td>
+    <td>{atl['orders']}</td>
+    <td><a href="?action=cms&ctrl=lists&cat={atl['id']}">文章</a> · <a href="?action=category&id={atl['id']}&ctrl=edit">编辑</a> · <a href="?action=category&id={atl['id']}&ctrl=del" onclick="return confirm('确认删除')">删除</a> </td>
+  </tr>
+  <!-- END -->
+</table>
+
+<!-- 用于判断提示检测的方法$_i==0 -->  
+<!-- IF[$_i==0] -->  
+<div style="clear:both;";>抱歉，没有栏目，请先添加!</div>
+<!-- END -->  
+{inc:footer}

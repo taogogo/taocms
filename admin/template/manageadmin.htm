@@ -1,0 +1,30 @@
+{inc:header}
+<div class="controlban"><a href="?action=admin&ctrl=add">+添加</a><div style="clear:both;"></div></div>
+<table width="813" border="0" cellspacing="0" cellpadding="1" class="list">
+<tr>
+  <th width="10%">ID</th>
+<th >用户名</th>
+<th width="40%">权限</th>
+<th width="10%">状态</th>
+<th >操作</th>
+</tr>
+<!-- $list AS $atl -->  
+  <tr>
+    <td>{atl['id']}</td>
+    <td><a href="?action=admin&id={atl['id']}&ctrl=edit">{atl['name']}</a></td>
+	<td>
+	{run:}$authlist=array();$authlist=explode('|',$atl['auth']);{/run}
+	
+	{cats[$authlist[1]]['name']}{admins[$authlist[0]]} 
+	</td>
+    <td>{run:}echo Base::catstatus($atl['status']);{/run}</td>
+    <td><a href="?action=admin&id={atl['id']}&ctrl=edit">编辑</a> · <a href="?action=admin&id={atl['id']}&ctrl=del" onclick="return confirm('确认删除')">删除</a> </td>
+  </tr>
+  <!-- END -->
+</table>
+
+<!-- 用于判断提示检测的方法$_i==0 -->  
+<!-- IF[$_i==0] -->  
+<font color="#800000">抱歉，没有数据，请先添加!<a href="?action=manageadmin&ctrl=add">添加</a></font>  
+<!-- END -->  
+{inc:footer}

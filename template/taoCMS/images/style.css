@@ -1,0 +1,86 @@
+/*
+author:TaoGOGO
+blog:www.taogogo.info
+email:love@taogogo.info
+*/
+*{margin:0; padding:0;}
+small,cite{ text-decoration:none;}
+body{font:14px/160% "",Arial,sans-serif; }
+h1 {font-size:140%;}
+h2{ font-size:130%;}
+h3 {font-size:120%;}
+ul,li{ list-style-type:none;}
+img { border:none; vertical-align:top;}
+strong{font-weight:normal;}
+a{ margin:0; padding:0; color:#18346B;text-decoration:none;}
+a:hover{ color:#BD0800; text-decoration:underline; }
+#logo{ background:url(logo.gif); }
+/*common*/
+blockquote{ margin:15px auto 15px 20px; padding-left:15px; background:#f6f6f6; border-left:1px solid #91b24f}
+code, .code { font: 100% "Courier New", Courier, monospace;	color: #000000;	background: #FAFDE1;margin: 5px 10px;padding: 10px;display:block;border: 1px dashed #818141;}
+.alert{ color:#FF0000;}
+.clear{ clear:both;}
+.corner{  -moz-border-radius: 4px;-khtml-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;}
+.floatLeft{ float:left;}
+.floatRight{ float:right;}
+.disNone{ display:none;}
+/*top*/
+#topTitle{ height:67px; line-height:67px; padding-left:10px;  background:#F7F6F2; -moz-border-radius: 4px;-khtml-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;}
+#topTitle img{ margin-top:5px;}
+#topTitle span{margin-left:46px;;}
+.basetitle{ font-size:24px; font-weight:bold; color:#666666;}
+.basetitle:hover{ color:#000000; text-decoration:none;}
+#taoBody{ width:924px; margin:2px auto; border:#8FB4DC 1px solid;  -moz-border-radius: 4px;-khtml-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;}
+#bodyLeft{ width:670px; float:left; padding:1px 2px;  overflow:hidden; }
+#bodyLeft h2{ font-size:16px; margin:8px 0px 1px 4px;}
+#bodyRight{ width:250px; float:right; }
+.sitebarHead{ border:1px #8FB4DC solid;border-right:none; margin:4px 0px; padding:3px 5px; background:#EFF4F8;border-top-left-radius:4px;}
+.postList{ margin:10px 2px 20px 2px;}
+.postList .listDetal,#postDetal{ border:1px solid #CCCCCC; color:#666666; padding-left:3px;}
+.postList h2 a{ margin-top:12px; font-size:20px;}
+.listEntry{ margin:6px 1px;}
+/*content*/
+#post,.listEntry{ padding:0px 2px;word-wrap: break-word; word-break: normal; }
+#content{ margin:3px 1px;}
+#content a{ border-bottom:#CCCCCC 1px dashed;}
+#content  a  img{ border-bottom:0px;}
+#content a:hover{ text-decoration:none;border-bottom:#BD0800 1px dashed;}
+#content strong{font-weight:bold;}
+#post h2{ text-align:center; margin:10px auto;font-size:24px;} 
+#postTime{ text-align:right; font-size:12px;  border-top:#CCCCCC dotted 1px;   color:#4E7CAD;}
+#postDetal{ margin:5px 0px;}
+#digit{ text-align:center; height:55; line-height:55px;}
+#digit span{ font-size:30px; font-weight:bold; padding:0px 5px;}
+#digit a{ padding:10px 10px;background:#FFFFCC; border:solid 1px #CCCCCC;}
+#digit a:hover{background:#FFFFEC; text-decoration:none;}
+#nav{height:44px; background:url(tip.gif) 0px -120px repeat-x;}
+#nav li {float:left; margin:1px 2px ;width:150px;}
+#nav li a{ display:block;height:41px; padding:0px 20px;text-align:center;line-height:44px; font-size:18px;color:#FFFFFF;border-radius: 4px;}
+#nav li a:hover{ text-decoration:none; background:url(tip.gif) 0px -165px repeat-x;;color:#000000; }
+.sidebarCat li{ display:block; margin-top:1px ; height:100%}
+.sidebarCat li a{  display:block;  padding:1px 3px;}
+.sidebarCat li a:hover{ text-decoration:none; color:#FFFFFF; background:#8FB4DC;-moz-border-radius: 4px;-khtml-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px; }
+/*comment*/
+.commentlist li{ padding:1px;}
+.commentlist li small{ font-size:12px; margin:0px 4px;}
+.commentlist li small a{ font-size:13px;}
+.commentlist li .gravatar{ float:left; width:52px;}
+.commentlist li .comment-entry{ float:left; width:600px; margin-left:10px;}
+.comment-entry cite,.comment-entry small{ float:left;}
+.comment-content{ clear:both}
+.commentlist .alt{ margin:1px auto; border:#CCCCCC solid 1px; background:#F7F6F2}
+.commentlist .alt1{ background:#FFFFFF}/
+.commentlist .comments{ float:left;}
+#commentform{ margin:5px 0px;}
+#commentform small{ font-size:12px;}
+#commentform input{ border:#666666 solid 1px;border-radius: 2px;}
+#commentform input:focus,#comment:focus{ background:#DFEFFD;}
+#comment{ width:400px; height:120px; float:left;}
+.comment-content{word-break:break-all; width:100% overflow:hidden}
+#submit{  background: url(tip.gif) repeat-x; width:120px; height:120px; font-size:20px; float:left;}
+#submit:hover{ color:#FFFFFF;}
+/*ads*/
+#sbi{border: 1px solid #666666;}
+#sbb{ background:url(sbtn.gif); border:0px; width:39px; height:20px; color:#333333; line-height:20px;}
+.contentBotAds{ color:#666666;}
+#footer{ clear:both; text-align:center; margin:2px; border-top:1px solid #CCCCCC; padding:2px 0px;}

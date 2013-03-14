@@ -1,0 +1,88 @@
+/*author:TaoGOGO
+blog:www.taogogo.info
+email:love@taogogo.info
+*/
+*{margin:0; padding:0;}
+small,cite{ text-decoration:none;}
+body{font:13px/160% "",Arial,sans-serif; font-size:14px; }
+h1 {font-size:140%;}
+h2{ font-size:130%; margin-bottom:10px;}
+h3 {font-size:120%; border-bottom:1px solid #D2D2D2; padding:5px 0;}
+ul,li{ list-style-type:none;}
+img { border:none; vertical-align:top;}
+strong{font-weight:normal;}
+a{ margin:0; padding:0; color:#283347;text-decoration:none;}
+a:hover{ color:#BD0800; text-decoration:underline; }
+#logo{ background:url(images/logo.gif); }
+/*common*/
+blockquote{ margin:15px auto 15px 20px; padding-left:15px; background:#f6f6f6; border-left:1px solid #91b24f}
+code, .code { font: 100% "Courier New", Courier, monospace;	color: #000000;	background: #FAFDE1;margin: 5px 10px;padding: 10px;display:block;border: 1px dashed #818141;}
+.alert{ color:#FF0000;}
+.clear{ clear:both;}
+.corner{  -moz-border-radius: 4px;-khtml-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;}
+.floatLeft{ float:left;}
+.floatRight{ float:right;}
+.disNone{ display:none;}
+.te {border:1px solid #bbb; padding:0 1px 1px; font:12px Verdana,Arial; margin:1px}
+.te iframe {border:none}
+.teheader {height:31px; border-bottom:1px solid #bbb; background:url(default/header-bg.gif) repeat-x; padding-top:1px}
+.teheader select {float:left; margin-top:5px}
+.tefont {margin-left:12px}
+.tesize {margin:0 3px}
+.testyle {margin-right:12px}
+.tedivider {float:left; width:1px; height:30px; background:#ccc}
+.tecontrol {float:left; width:34px; height:30px; cursor:pointer; background-image:url(default/icons.png)}
+.tecontrol:hover {background-color:#fff; background-position:30px 0}
+.tefooter {height:32px; border-top:1px solid #bbb; background:#f5f5f5}
+.toggle {float:left; background:url(default/icons.png) -34px 2px no-repeat; padding:9px 13px 0 31px; height:23px; border-right:1px solid #ccc; cursor:pointer; color:#666}
+.toggle:hover {background-color:#fff}
+.resize {float:right; height:32px; width:32px; background:url(default/resize.gif) 15px 15px no-repeat; cursor:s-resize}
+#editor {cursor:text; margin:10px}
+/*登录界面*/
+#loginbody{  width:338px; height:45px;margin:10px auto; border:#999999 2px solid; padding:10px 4px;border-radius: 3px; font-size:16px;}
+#loginbody input{border-radius: 3px; }
+#loginname,#loginpwd{ width:160px;height:18px; border:1px solid #CCCCCC;}
+#loginbtn{ cursor:pointer;float:right;height:45px; width:110px; font-size:24px; background:#F3F2F2; border:#CCCCCC 1px solid;text-shadow: 1px 1px 1px black;}
+#loginbtn:hover{ border:1px solid #66C5FF; background:#E6E3E3; color:#0055CC;text-shadow: 1px 1px 1px black;}
+#admintop{ background:#CCCCCC url(mainnavbg.gif) 0px -147px; height:26px;padding:0px 40px; border-bottom:1px solid #9D9D9D;}
+#toplogo{ float:left;font-size:18px;text-shadow: 0px -1px #A3A3A3,0 1px #fff; color:#333333; line-height:26px;}
+#topnav{ float:right; margin:0px 4px;}
+#mainnav{}
+#mainnav li{ margin:1px 14px;}
+#mainnav a{ display:block; height:25px; width:136px; text-align:center; line-height:25px; font-size:15px; font-weight:bold; border:#E0E0E0 1px solid; background:url(mainnavbg.gif); border-radius:2px}
+#mainnav a:hover{ border: #A1A1A1 1px solid; text-decoration:none; color:#333333; background:#E8E5E5;background:url(mainnavbg.gif) 0px -28px;}
+#mainnav .bignav{border: #A1A1A1 1px solid;background:#E8E5E5 url(mainnavbg.gif) 0px -56px; color:#FFFFFF; font-weight:bold;}
+#mainnav .bignav:hover{ cursor:default;background:#E8E5E5 url(mainnavbg.gif) 0px -56px;color:#FFFFFF;}
+.addtable a,.list a{ border-bottom:1px dotted #999999;}
+ .addtable a:hover,.list a:hover{ border-bottom:none;}
+ .addtable{  border:#999999 1px solid;}
+.addtable th,.list th{word-break: keep-all;white-space:nowrap;}
+.addtable td,.list td{border-bottom:#999999 1px solid; padding:2px 4px;word-break: keep-all;white-space:nowrap;}
+.list td{border-left:#999999 1px solid; padding:2px 4px;}
+.list{ clear:both;border-right:#999999 1px solid;border-top:#999999 1px solid;float:left; margin:1px 0px;}
+.list th{border-left:#999999 1px solid;border-bottom:#999999 1px solid; height:23px; background:url(mainnavbg.gif) 0px -84px;}
+.addtable input{ width:400px; border:#333333 1px solid;  height:22px; line-height:22px; font-size:14px;}
+.addtable .sinput{ width:100px; border:#333333 1px solid; height:22px; line-height:22px; font-size:14px;}
+.addtable textarea{ width:400px; border:#333333 1px solid; height:100px; font-size:14px;}
+.normaltable{ border:#999999 1px solid;}
+.normaltable td,.list td{border-bottom:#999999 1px solid; padding:2px 4px;}
+.normaltable input{ width:60%; border:#333333 1px solid; height:22px; line-height:22px; font-size:14px;}
+.normaltable .sex input{width:auto;}
+.normaltable textarea{width:60%;  border:#333333 1px solid; height:100px; font-size:14px;}
+.uploadbtn{ padding:2px 8px; margin:4px 12px; font-size:16px; background:#666666; color:#FFFFFF;border:#999999 1px solid;}
+.uploadbtn:hover{ color:#FFFFFF; background:#999999; border:#666666 1px solid; text-decoration:none;}
+#submits{ width:100px; height:26px; background: url(mainnavbg.gif) 0px -107px; cursor:pointer; font-weight:bold;border-radius:2px;}
+#submits:hover{ border:#66C5FF 1px solid; color:#0055CC;}
+#allowcmt{ width:50px; border:none;}
+.controlban,.searchban{height:24px; clear:both; margin:1px 0px;}
+.controlban a{ display:block; float:left;height:22px;white-space:nowrap; padding:0px 8px; margin:2px 2px 0px 0px; font-size:16px; background: url(mainnavbg.gif) 0px -107px; color:#0B2C65;border:#B7B5B5 1px solid;border-radius:2px;}
+.controlban a:hover{ color:#0055CC;background: url(mainnavbg.gif) 0px -127px; border:#66C5FF 1px solid; border-bottom:#66C5FF 1px solid; text-decoration:none;}
+.linkbtn,#singlebtn{ padding:3px 8px;background: url(mainnavbg.gif) 0px -107px;border:#B7B5B5 1px solid;border-radius:2px; color:#0B2C65; }
+.linkbtn:hover,#singlebtn:hover{ padding:3px 8px;background: url(mainnavbg.gif) 0px -107px;border:#66C5FF 1px solid;border-radius:2px; color:#0055CC; text-decoration:none; }
+.searchban{  border:#E1E1E1 2px solid; line-height:24px; height:24px; width:784px; padding:0px 6px; background:#EAEAEA; }
+.searchban b{ background:url(sub_arrow.gif) right center no-repeat; display:block; height:24px; width:42px; float:left; margin-right:10px;}
+.tabtop{ background:#E1DDDD; text-align:center;}
+.navigation{ width:800px;}
+#auth_cat{ display:none;}
+.topban{ height:80px;  line-height:80px; text-indent:90px; color:#FFFFFF; font-size:36px; font-weight:bold; font-family:"����"; background:url(logo.gif) 15px 6px no-repeat #8AB8CD;}
+#filedata{ min-height:400px;}

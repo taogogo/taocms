@@ -1,0 +1,29 @@
+{inc:header}
+<div class="controlban"><a href="?action=link&ctrl=add">+添加</a> </div>
+
+<table width="700" border="0" cellspacing="0" cellpadding="1" class="list">
+<tr>
+<th>ID</th>
+<th>链接名称</th>
+<th>状态</th>
+<th >排序</th>
+<th>描述</th>
+<th >操作</th>
+</tr>
+<!-- $list AS $atl -->  
+  <tr onmouseover="this.style.backgroundColor='#F4F4F4'" onmouseout="this.style.backgroundColor=''">
+  <td>{atl['id']}</td>
+    <td><a href="?action=link&id={atl['id']}&ctrl=edit"  >{atl['name']}</a></td>
+	<td>{run:}echo Base::catstatus($atl['status']);{/run}</td>
+    <td>{atl['orders']}</td>
+	 <td>{atl['content']}</td>
+    <td><a href="?action=link&id={atl['id']}&ctrl=edit"  >编辑</a>·<a href="?action=link&id={atl['id']}&ctrl=del" onclick="return confirm('确认删除')">删除</a></td>
+  </tr>
+  <!-- END -->
+  </table>
+
+<!-- 用于判断提示检测的方法$_i==0 -->  
+<!-- IF[$_i==0] -->  
+<font color="#800000">抱歉，无链接数据，请先添加!<a href="?action=link&ctrl=add">添加</a></font>  
+<!-- END -->  
+{inc:footer}

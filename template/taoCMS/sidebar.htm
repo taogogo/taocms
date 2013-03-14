@@ -1,0 +1,85 @@
+<div id="bodyRight">
+  <!-- notice  begin -->
+  <h3 class="sitebarHead">公告</h3>
+  <div class="separator">{announce}</div>
+  <!-- notice  end -->
+  <!-- searchform  begin -->
+  <h3 class="sitebarHead" id="gsearch">赞助商</h3>
+   <div class="separator">
+  taoCMS感谢您的支持。
+  </div>
+  <!-- searchform  end -->
+  
+  
+    <!-- comment  begin -->
+  <div class="sidebarCat">
+    <h3 class="sitebarHead">最近评论</h3>
+    <ul class="submenu">
+	<!-- taolist:comment|status=1|4|-->
+	<!-- taolistURL:cms|id=$list[article_id]|1-->
+	<li class="cat-item" ><a href="{weburl}{listURL['staticurl']}">{list['name']}:{list['content']}</a></li>
+	<!-- END -->
+	<!-- END -->
+    </ul>
+  </div>
+  <!--comment end -->
+  <!-- if[DB=='Sqlite']-->
+      <!-- random  begin -->
+  <div class="sidebarCat">
+    <h3 class="sitebarHead">随机日记</h3>
+    <ul class="submenu">	
+	 <!-- taolist:cms|status=1|4|RANDOM ()-->
+     <li><a  href="{weburl}{list['staticurl']}">{list['name']}</a></li>
+     <!-- END -->
+
+    </ul>
+  </div>
+  <!-- END -->
+  <!--random end -->
+        <!-- hotlist  begin -->
+  <div class="sidebarCat">
+    <h3 class="sitebarHead">热门排行</h3>
+    <ul class="submenu">
+	 <!-- taolist:cms|status=1|5|views DESC-->
+    <li><a  href="{weburl}{list['staticurl']}">{list['name']}</a></li>
+     <!-- END -->
+
+    </ul>
+  </div>
+  <!--hotlist end -->
+      <!-- tags  begin -->
+  <div class="sidebarCat">
+    <h3 class="sitebarHead">标签云</h3>
+    <ul class="submenu">
+	 <!-- taolist:relations||20|counts DESC-->
+    <a href="{weburl}?tag={run:}echo urlencode($list['name']);{/run}">{list['name']}</a>[{list['counts']}]
+     <!-- END -->
+
+    </ul>
+  </div>
+  <!--tags end -->
+  <!-- cat  begin -->
+  <div class="sidebarCat">
+    <h3 class="sitebarHead">文章分类</h3>
+    <ul class="submenu">
+	 <!-- taolist:category|status=1|20|id DESC-->
+   <li class="cat-item" ><a  href="{weburl}{list['staticurl']}" >{list['name']}</a></li>
+     <!-- END -->
+
+    </ul>
+  </div>
+  <!--cat end -->
+  <!-- links  begin -->
+  <div class="sidebarCat">
+    <h3 class="sitebarHead">友情链接</h3>
+    <ul class="submenu">
+<!-- taolist:link|status=1|20|id DESC-->
+		 <li class="cat-item" ><a href="{list['urls']}" title="{list['content']}" target="_blank">{list['name']}</a></li>
+<!-- END --> 
+
+    </ul>
+  </div>
+  <!--links end -->
+
+
+  </div>

@@ -1,0 +1,74 @@
+{inc:header}
+<div class="searchban">
+<form action="admin.php" method="get"> 
+<b> 查询</b>  
+	题目: <input name="name" type="text" id="name" value="{_GET['name']}" />
+	栏目:<select name="cat" id="cat">
+<!-- $cats AS $key=> $v --><option value="{key}">{v['name']}</option><!-- end -->
+	</select>
+	
+  </select>
+  状态:
+<select name="status" id="status">
+<option value="">全部</option>
+	<option value="0" <!-- IF[$_GET['status']=='0'] -->selected="selected"<!-- end -->>草稿</option>
+	<option value="1" <!-- IF[$_GET['status']=='1'] -->selected="selected"<!-- end -->>发表</option>
+	<option value="-1" <!-- IF[$_GET['status']=='-1'] -->selected="selected"<!-- end -->>隐藏</option>
+	</select>
+	
+  </select>
+	<input type="hidden" name="action" value="cms" />
+	<input type="hidden" name="ctrl" value="lists" />
+	<input name="submit" type="submit" id="submit" value="查询" />
+  </form>
+</div>
+<form action="admin.php" method="post" id="multctrl">
+<div class="controlban"><a href="?action=cms&ctrl=add">+添加</a><!-- IF[CREATHTML==1] --><a href="?action=cms&ctrl=createhtml">[生成文章静态]</a><!-- end --><a href="?action=cms&ctrl=updateurl" onclick="return confirm('确认重置URL？本操作将根据设定的url规则重新生成url')">重置URL</a><a href="javascript:if(confirm('确认删除选中的文章？'))$tao('multctrl').submit();">批量删除</a><a href="javascript:void(0);" onclick="$tao('tocat').style.display='block';">批量移动</a><select class="disNone" name="cat" id="tocat" onchange="$tao('ctrl').value='tocat';$tao('catid').value=this.value;$tao('multctrl').submit()" >
+	<!-- $cats AS $a -->
+	<option value="{a['id']}" <!-- if($a['id']==$o['cat']) -->selected<!-- end -->   >到{a['name']}</option>
+	<!-- END -->  
+	</select>
+	
+  </select></div>
+<table width="800" border="0" cellspacing="0" cellpadding="1" class="list">
+<tr>
+  <th><input type="checkbox" onclick="VerifyRadio();"/></th>
+  <th >ID</th>
+  <th >标题</th>
+<th>栏目</th>
+<th >状态</th>
+<th>允许评论</th>
+<th>排序</th>
+<th>操作</th>
+</tr>
+<!-- $list AS $atl -->  
+  <tr onmouseover="this.style.backgroundColor='#F4F4F4'" onmouseout="this.style.backgroundColor=''">
+    <td><input name="id[]" type="checkbox" id="id[]" value="{atl['id']}" /></td>
+    <td>{atl['id']}</td>
+    <td><a title="点击编辑《{atl['name']}》" href="?action=cms&id={atl['id']}&ctrl=edit">{atl['name']}</a></td>
+	<td><a href="?action=cms&ctrl=lists&cat={atl['cat']}">{cats[$atl['cat']]['name']}</a></td>
+	
+    <td>{run:}echo Base::mystatus($atl['status']);{/run}</td>
+    <td>{run:}echo Base::cmstatus($atl['allowcmt']);{/run}</td>
+    <td>{atl['orders']}</td>
+    <td><a href="../{atl['staticurl']}" target="_blank">查看</a> · <a href="?action=cms&id={atl['id']}&ctrl=edit">编辑</a> · <a href="?action=cms&id={atl['id']}&ctrl=del" onclick="return confirm('确认删除《{atl['name']}》')">删除</a><!-- IF[CREATHTML==1] --> · <a href="../index.php?createprocess=1&id={atl['id']}&single=1">生成静态</a><!-- END--></td>
+  </tr>
+  <!-- END -->  
+  </table>
+  <input type="hidden" name="catid" id="catid" value="0" />
+<input type="hidden" name="action" value="cms" />
+	<input type="hidden" name="ctrl" id="ctrl" value="del" /></form>
+	<div class="navigation">
+	 
+	  <!-- if($page!=0) -->
+		<div class="floatLeft"><a href="?action=cms&ctrl=lists&p={uppage}&cat={_GET['cat']}&status={_GET['status']}&name={_GET['name']}" }}">&laquo; 上一页</a></div><!-- end -->
+		<!-- if($downpage!=$page) --><div class="floatRight"><a href="?action=cms&ctrl=lists&p={downpage}&cat={_GET['cat']}&status={_GET['status']}&name={_GET['name']}">下一页 &raquo;</a></div><!-- end -->
+</div>
+<!-- 用于判断提示检测的方法$_i==0 -->  
+<!-- IF[$_i==0] --> <br />
+ 
+<div style="clear:both;";>抱歉，没有文章数据，请先添加!</div>  
+<!-- END -->  
+
+
+{inc:footer}

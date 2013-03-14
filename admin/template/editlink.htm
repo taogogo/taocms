@@ -1,0 +1,39 @@
+{inc:header}
+<form action="admin.php" method="post">
+ <table width="699" border="0" cellspacing="0" cellpadding="1" class="addtable">
+    <tr>
+      <td width="87" scope="col">链接名称:</td>
+      <td width="608" scope="col"><input name="name" type="text" id="name" value="{o['name']}" /></td>
+    </tr>
+	    <tr>
+      <td width="87" scope="col">链接地址:</td>
+      <td width="608" scope="col"><input name="urls" type="text" id="urls" value="{o['urls']}" /></td>
+    </tr>
+	    </tr>
+	    <tr>
+      <td width="87" scope="col">链接描述:</td>
+      <td width="608" scope="col"><textarea name="content" id="content">{o['content']}</textarea></td>
+    </tr>
+
+	<tr>
+      <td width="87" scope="col">排序:</td>
+      <td width="608" scope="col"><input name="orders" type="text" id="orders" value="{o['orders']}" /></td>
+    </tr>
+	<tr>
+      <td width="87" scope="col">状态:</td>
+      <td width="608" scope="col"><SELECT  name="status" id="status">
+	<option value="0" >隐藏</option>
+	<option value="1" selected >显示</option>
+</SELECT></td>
+    </tr>
+	<tr>
+	      <td colspan="2" scope="col">
+<input name="action" type="hidden" value="link" />
+<input name="id" type="hidden" value="{o['id']}" />
+<input name="ctrl" type="hidden" value="{goctrl}" />
+<input type="submit" name="Submit" id="submits" value="提交" /></td>
+    </tr>
+	 </table>
+
+</form>
+{inc:footer}

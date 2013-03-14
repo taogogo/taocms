@@ -1,0 +1,18 @@
+{inc:header}
+<form action="admin.php" method="post">
+{inc:header}
+<form action="admin.php" method="post">
+<table border="0" cellspacing="0" cellpadding="1" class="addtable" width="750">
+<tr> <td>输入要执行的SQL语句（谨慎操作，操作不可恢复）</td></tr>
+    <tr> <td>
+<textarea name="sqltext" rows="20" style="width:100%"></textarea>
+</td></tr>
+ <tr> <td>
+<input name="action" type="hidden" value="sql" />
+<input name="ctrl" type="hidden" value="excute" />
+<input type="submit" name="Submit" id="submits" value="执行SQL" /></td>
+    </tr>
+	 </table>
+
+</form>
+{inc:footer}

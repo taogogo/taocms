@@ -1,0 +1,30 @@
+{inc:header}
+<form action="admin.php" method="post" enctype="multipart/form-data">
+<table width="699" border="0" cellspacing="0" cellpadding="1" class="list">
+    <tr class="tabtop">
+      <th>恢复数据</th>
+    </tr>
+	<tr>
+      <td scope="col"><input type="file" name="file" /><input name="action" type="hidden" value="datastore" />
+<input name="ctrl" type="hidden" value="update" />
+<input type="submit" name="Submit" value="导入恢复" /><br />
+导入数据后，如有url异常，请在后台重新生成文章url
+</td>
+    </tr>
+	<tr  class="tabtop">
+	  <th>备份数据</th>
+    </tr>
+	<tr>
+	  <td ><b>备份全部:</b><a href="?action=datastore&amp;ctrl=create&amp;bulist=admin|category|cms|comment|link|relations|relatocms">生成全部备份文件</a><br />
+	    <b>仅备份文章 :</b>从第
+          <input name="from" type="text" id="from"class="sinput"/>
+      篇到第
+      <input name="to" type="text" id="to" class="sinput"/>
+      篇
+      <input type="button" name="Submit2" value="部分备份" class="sinput" onclick="window.location.href='?action=datastore&ctrl=create&amp;bulist=cms&from='+$tao('from').value+'&to='+($tao('to').value-$tao('from').value);return false;"/>
+      <br />
+      <b>仅备份除文章以外数据:</b><a href="?action=datastore&amp;ctrl=create&amp;bulist=admin|category|comment|link|relations|relatocms">生成备份文件</a></td>
+    </tr>
+</table>
+</form>
+{inc:footer}

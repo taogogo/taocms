@@ -1,0 +1,33 @@
+{inc:header}
+<!--taoBody开始-->
+  <div id="bodyLeft">
+    <div class="npPost">
+      <div class="floatLeft"> «<!-- IF[$upart] --><a href="{weburl}{upart['staticurl']}">{upart['name']}</a><!-- ELSE -->没有了<!-- END --></div>
+	 <div class="floatRight"><!-- IF[$downart] --><a href="{weburl}{downart['staticurl']}">{downart['name']}</a> » <!-- ELSE -->没有了<!-- END -->  </div>
+	  
+	  
+	  <div class="clear"></div>
+    </div>
+    <!--正文开始-->
+    <div id="post">
+      <h2 class="arttitle"><a rel="bookmark" title="Permanent Link to {atl['name']}"  href="{weburl}{atl['staticurl']}">{atl['name']}</a></h2>
+	  <div id="postTime">{run:}echo date("Y-m-d",$atl['times']);{/run}</div>
+	  	  <!--文章内容开始-->
+      <div id="content">{atl['content']}</div>
+	    <!--文章内容结束-->
+	  <div id="postDetal">
+	   <p>类别:<a href="{weburl}{cats[$atl['cat']]['staticurl']}">{cats[$atl['cat']]['name']}</a> | 阅读:{atl['views']} | 评论:{atl['cmtcount']} | 
+	   标签:{run:}$tagarray=explode(',',$atl['tags']);{/run}<!-- $tagarray AS $tag --><a href="{weburl}?tag={run:}echo urlencode($tag);{/run}">{tag}</a> <!-- END --></p>
+	  </div>
+	  <div id="digit"><a rel="nofollow" href="javascript:void(0)" onclick="$taoajax('{weburl}api.php?action=api&ctrl=dig&id={atl['id']}&p=up&ajax=1')">我顶</a><span id="dignum">{atl['orders3']}</span><a rel="nofollow" href="javascript:void(0)" onclick="$taoajax('{weburl}api.php?action=api&ctrl=dig&id={atl['id']}&p=down&ajax=1')">我踩</a></div>
+		<!--文章内容底部广告开始-->
+		<div class="contentBotAds">想收藏或者和大家分享这篇好文章→<span class="addthis_org_cn"><a href="#" title="收藏&amp;分享这篇好文章"><img src="images/addthis.gif" alt="" align="absmiddle" /></a></span>		</div>
+		<!--文章内容底部广告结束-->
+    </div>
+	  <!--正文结束-->
+	  <!-- IF[$atl['allowcmt']==1] -->{inc:comments}<!-- END -->
+
+
+	  </div>
+{inc:sidebar}
+{inc:footer}

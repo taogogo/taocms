@@ -1,0 +1,83 @@
+{inc:header}
+<table width="800" border="0" cellspacing="0" cellpadding="1" class="list">
+<tr>
+<th width="186" >参数名称</th>
+<th width="610" >详情</th>
+</tr>
+  <tr>
+    <td>发布文章:</td>
+	<td>{articleData['count']}篇[<a href="admin.php?action=cms&amp;ctrl=add">发表文章</a>] [<a href="admin.php?action=cms&amp;ctrl=lists">管理文章</a>]</td>
+  </tr>
+    <tr>
+    <td>系统信息:</td>
+	<td>{run:}echo PHP_OS.'['.$_SERVER["SERVER_SOFTWARE"].']'{/run}</td>
+  </tr>
+  </tr>
+    <tr>
+    <td>最大附件:</td>
+	<td>{run:}echo ini_get('upload_max_filesize'){/run}</td>
+  </tr>
+  </tr>
+    <tr>
+    <td>绝对路径:</td>
+	<td>{run:}echo $_SERVER['DOCUMENT_ROOT'];{/run}</td>
+  </tr>
+  </tr>
+    <tr>
+    <td>剩余空间:</td>
+	<td>{run:}echo round((@disk_free_space(".")/(1024*1024)),2){/run}M</td>
+  </tr>
+      <tr>
+    <td>服务器当前时间:</td>
+	<td>{run:}echo Base::getnowtime('Y-m-d H:i:s');{/run}(<a href="admin.php?action=config&ctrl=display#times">设置</a>)</td>
+  </tr>
+  <tr>
+    <td>网站地址:</td>
+	<td>{run:}echo WEBURL;{/run}{run:}if(WEBURL=='./'){{/run}(<a style="color:red;" href="admin.php?action=config&ctrl=display">当前未设置</a>，建议马上<a href="admin.php?action=config&ctrl=display#times">设置</a>为{run:}echo "http://".$_SERVER['HTTP_HOST'].str_replace(ADMINDIR.'admin.php','',$_SERVER['SCRIPT_NAME']);{/run}){run:}}{/run}</td>
+  </tr>
+</table>
+<table width="800" border="0" cellspacing="0" cellpadding="1" class="list">
+<tr>
+<th colspan="2" >关于程序</th>
+</tr>
+  <tr>
+    <td width="182">系统名称:</td>
+    <td width="614">taoCMS网站内容管理系统</td>
+  </tr>
+  <tr>
+    <td>当前版本:</td>
+    <td>{GLOBALS['version']} <a id="singlebtn" href="http://www.taocms.org/update.php?v={GLOBALS['version']}&nowtime={GLOBALS['starttime']}">检查新版</a></td>
+  </tr>
+  <tr>
+    <td>程序开发:</td>
+    <td>taoCMS</td>
+  </tr>
+  <tr>
+    <td>特别感谢:</td>
+    <td>doudou,ymk18,晴天,艳敏,混世魔王,Ethan,shack2,kobin97,wooyun平台</td>
+  </tr>
+  <tr>
+    <td>下载相关:</td>
+    <td><a href="http://www.taocms.org/tagtaocms%E6%A8%A1%E6%9D%BF.html" target="_blank">模板下载</a>·<a href="http://www.taocms.org/tagtaocms%E4%B8%8B%E8%BD%BD.html" target="_blank">系统下载</a></td>
+  </tr>
+  <tr>
+    <td>技术支持:</td>
+    <td><a href="http://www.taocms.org" target="_blank">taoCMS官网</a> <a href="http://taobbs.sinaapp.com" target="_blank">taoCMS论坛</a></td>
+  </tr>
+   <tr>
+    <td>♥♥捐助♥♥:</td>
+    <td>
+<a href="https://me.alipay.com/taocms" target="_blank">♥支付宝捐赠♥</a>
+    </td>
+  </tr>
+   <tr>
+    <td>官方消息:</td>
+    <td>
+    <span id="notice">暂无</span>
+    <script type="text/javascript" src="http://www.taocms.org/news.php?v={GLOBALS['version']}&nowtime={GLOBALS['starttime']}"></script>
+    </td>
+  </tr>
+  
+  
+</table>
+{inc:footer}

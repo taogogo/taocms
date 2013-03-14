@@ -1,0 +1,105 @@
+{inc:header}
+<form action="admin.php" method="post" onsubmit="if($('name').value==''){alert('文章标题必须填写');return false;}">
+
+  <table width="750" border="0" cellspacing="0" cellpadding="1" class="addtable">
+    <tr>
+      <td width="100" scope="col">标题:</td>
+      <td width="608" scope="col"><input name="name" type="text" id="name" value="{o['name']}" /></td>
+    </tr>
+	 
+	 <tr>
+      <td scope="col">栏目:</td>
+      <td scope="col"><SELECT  name="cat" id="cat">
+	<option value="0">未分组</option>
+	<!-- $category AS $atl -->
+	<option value="{atl['id']}" <!-- if($atl['id']==$o['cat']) -->selected<!-- end -->  >{atl['name']}</option>
+	<!-- END -->  
+	</SELECT></td>
+    </tr>
+	 <tr>
+      <td colspan="2" scope="col">
+<textarea name="content" id="content" style="width:100%;" class="xheditor {tools:'full',width:'740',height:'275',layerShadow:0,internalScript:true,inlineScript:true,linkTag:true,upLinkUrl:'admin.php?action=upload&ctrl=editor',upImgUrl:'admin.php?action=upload&ctrl=editor',upFlashUrl:'admin.php?action=upload&ctrl=editor',upMediaUrl:'admin.php?action=upload&ctrl=editor'}">{o['content']}</textarea>
+<!-- IF[TAOEDITOR==1] -->
+<script type="text/javascript" src="images/default/tinyeditor.js"></script>
+<script type="text/javascript">
+var instance=new TINY.editor.edit('editor',{
+	id:'content',
+	width:740,
+	height:175,
+	cssclass:'contentls',
+	controlclass:'tecontrol',
+	rowclass:'teheader',
+	dividerclass:'tedivider',
+	controls:['bold','italic','underline','strikethrough','|','subscript','superscript','|', 'orderedlist','unorderedlist','|','outdent','indent','|','leftalign',
+			  'centeralign','rightalign','blockjustify','|','unformat','|','undo','redo','print','n',
+			  'font','size','style','forecolor','backcolor','|','image','swf','media','upload','|','hr','link','unlink','|','cut','copy','paste'],
+	footer:true,
+	fonts:['楷体','宋体','黑体','Verdana','Arial','Georgia'],
+	xhtml:true,
+	cssfile:'style.css',
+	uploadexc:'admin.php?action=upload&ctrl=display',
+	bodyid:'editor',
+	footerclass:'tefooter',
+	toggle:{text:'源码',activetext:'视图',cssclass:'toggle'},
+	resize:{cssclass:'resize'}
+});
+</script>
+<!-- end -->
+<!-- IF[TAOEDITOR==2] -->
+<br /><span style="font-size:12px;color:gray;" id="alerts">*如未加载编辑器，请到taoCMS<a href="http://www.taocms.org/cat6.html" target="_blank">下载专用的Xheditor编辑器</a>，解压后放于 系统目录/admin/images/xheditor/</span>
+<script type="text/javascript" src="images/xheditor/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="images/xheditor/xheditor-1.1.14-zh-cn.min.js"></script>
+<!-- END -->
+</td>
+    </tr>
+	 <tr>
+       <td scope="col">别名:</td>
+	   <td scope="col"><input name="slug" type="text" id="slug" value="{o['slug']}" /></td>
+    </tr>
+	 <tr>
+       <td scope="col">标签:</td>
+	   <td scope="col"><input name="tags" type="text" id="tags" value="{o['tags']}" /></td>
+    </tr>
+	<tr>
+      <td scope="col">链接:</td>
+      <td scope="col"><input name="link" type="text" id="link" value="{o['link']}" /></td>
+    </tr>
+	<tr>
+      <td scope="col">缩略图:</td>
+      <td scope="col"><input name="thumbpic" type="text" id="thumbpic" value="{o['thumbpic']}"/><a href="#" class="linkbtn" id="singlebtn"  class="uploadbtn" onclick="if(!window.open('admin.php?action=upload&ctrl=display&&inid=thumbpic','newwindow', 'height=200, width=350, top=400, left=400'))alert('无法弹出上传窗口窗口，你可以尝试点击浏览器上方出现的黄色提示条，选择“临时允许弹出窗口”');" >上传缩略图</a></td>
+    </tr>
+		 <tr>
+      <td scope="col">排序:</td>
+      <td scope="col"><input name="orders" type="text" id="orders" value="{o['orders']}" /></td>
+    </tr>
+	<tr>
+      <td scope="col">允许评论:</td>
+      <td scope="col"><input name="allowcmt" id="allowcmt" type="checkbox" value="1" checked /></td>
+    </tr>
+    <tr>
+      <td scope="col">保存远程图片:</td>
+      <td scope="col"><input name="remotepic" id="remotepic" type="checkbox" value="1" {run:}if(WEBURL=='./')echo 'onclick="alert(\'请设置网站url后再选中此项，否则可能导致图片地址异常\');return false;"'{/run} /></td>
+    </tr>
+	<tr>
+      <td scope="col">状态:</td>
+      <td scope="col"><SELECT  name="status" id="status">
+	<option value="0" >草稿</option>
+	<option value="1" selected="selected" >发表</option>
+	<option value="-1"  >隐藏</option>
+      </SELECT></td>
+    </tr>
+	<tr>
+      <td colspan="2" scope="col"><input name="action" type="hidden" value="cms" />
+<input name="ctrl" type="hidden" value="{goctrl}" />
+<input name="id" type="hidden" value="{o['id']}" />
+<input type="submit" name="Submit" id="submits" value="提交" onmouseover="instance.post();" /></td>
+    </tr>
+  </table>
+</form>
+<script language="javascript">
+//alert(T$('orders').value);
+SelectItemByValue($tao('status'),'{o['status']}');
+SelectRadio($tao('allowcmt'),{o['allowcmt']});
+</script>
+{inc:footer}
+

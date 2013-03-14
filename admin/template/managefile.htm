@@ -1,0 +1,42 @@
+{inc:header}
+<div class="searchban">
+<form action="admin.php" method="get" id="toolform" enctype="multipart/form-data"> 
+<b> 工具条：</b>  
+	当前位置: 
+	<input name="path" type="text" id="path" value="{path}" />
+	<input type="hidden" name="action" value="file" />
+	<input type="hidden" name="ctrl" id="toolctrl" value="lists" />
+	<input type="hidden" name="isdir" id="isdir" value="1" />
+	<input name="submit" type="submit" id="submit" value="进入" />
+	新建
+	:
+	<input name="name" type="text" id="name" size="15" />
+    <input name="fbtn" type="submit" id="fbtn" value="新建文件"  onclick="$tao('toolctrl').value='create';$tao('isdir').value='0';"/>
+    <input type="submit" name="Submit" value="新建文件夹"  onclick="$tao('toolctrl').value='create';" />【<a href="javascript:void(0)" onclick="history.go(-1)">后退</a>·<a href="javascript:void(0)"  onclick="history.go(+1)">前进</a>·<a href="javascript:void(0)" onclick="window.location.reload();">刷新</a>】<a href="#" class="linkbtn" onclick="if(!window.open('admin.php?action=file&amp;ctrl=upload&path={path}','filewindow', 'height=100, width=350, top=400, left=400'))alert('无法弹出上传窗口窗口，你可以尝试点击浏览器上方出现的黄色提示条，选择“临时允许弹出窗口”');">上传</a>
+</form>
+</div>
+<table width="800" border="0" cellspacing="0" cellpadding="1" class="list">
+<tr>
+  <th >文件名称</th>
+<th >修改时间</th>
+<th>文件大小</th>
+<th>操作</th>
+</tr>
+<!-- $dirdata AS $dirs -->  
+  <tr onmouseover="this.style.backgroundColor='#F4F4F4'" onmouseout="this.style.backgroundColor=''">
+    <td><a href="?action=file&ctrl=lists&path={dirs['path']}">{dirs['name']}</a></td>
+	<td>{dirs['mtime']}</td>
+    <td>{dirs['size']}</td>
+    <td><a href="?action=file&amp;ctrl=lists&amp;path={dirs['path']}">进入</a> · <a href="?action=file&amp;ctrl=del&amp;path={dirs['path']}" onclick="return confirm('确认删除')">删除</a> </td>
+  </tr>
+  <!-- END -->
+  <!-- $filedata AS $files -->  
+  <tr onmouseover="this.style.backgroundColor='#F4F4F4'" onmouseout="this.style.backgroundColor=''">
+    <td><a href="?action=file&ctrl=edit&path={files['path']}">{files['name']}</a></td>
+	<td>{files['mtime']}</td>
+    <td>{files['size']}</td>
+    <td><a href="?action=file&amp;ctrl=download&amp;path={files['path']}">下载</a> · <a href="?action=file&amp;ctrl=edit&amp;path={files['path']}">编辑</a> · <a href="?action=file&amp;ctrl=del&amp;path={files['path']}" onclick="return confirm('确认删除')">删除</a></td>
+  </tr>
+  <!-- END -->
+</table>
+{inc:footer}

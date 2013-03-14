@@ -1,0 +1,32 @@
+{inc:header}
+<ul id="mainnav">
+<li><a href="admin.php?action=frame&ctrl=main" target="mainFrame">管理首页</a></li>
+<!-- IF[CREATHTML==1] --><li><a href="../index.php?createprocess=1" target="mainFrame">生成首页</a></li><!-- end -->
+<li><a href="#" class="bignav" >文章管理</a></li>
+<li><a href="admin.php?action=cms&ctrl=add" target="mainFrame">添加文章</a></li>
+<li><a href="admin.php?action=cms&ctrl=lists" target="mainFrame">管理文章</a></li>
+<!-- IF[$_SESSION[TB.'admin_level']=='admin'] -->
+<li><a href="admin.php?action=category&ctrl=lists" target="mainFrame">管理栏目</a></li>
+<li><a href="admin.php?action=spider&ctrl=display" target="mainFrame">采集管理</a></li>
+<li><a href="#" class="bignav"  >数据管理</a></li>
+<li><a href="admin.php?action=sql&ctrl=display" target="mainFrame">执行SQL</a></li>
+<!-- IF[DB=='Sqlite'] -->
+<li><a href="../{dbname}" target="mainFrame" onclick="return confirm('确认下载数据库？完全备份\n还要备份pictures目录及文件。恢复\n只需要将数据库文件和pictures目录下的文件还原即可')">备份Sqlite库</a></li><!-- end -->
+<li><a href="#" class="bignav"  >其他管理</a></li>
+<li><a href="admin.php?action=comment&ctrl=lists" target="mainFrame">管理评论</a></li>
+<li><a href="admin.php?action=link&ctrl=lists" target="mainFrame">友情链接</a></li>
+<li><a href="admin.php?action=admin&ctrl=lists" target="mainFrame">人员管理</a></li>
+<li><a href="admin.php?action=file&ctrl=lists" target="mainFrame">文件管理</a></li>
+<li><a href="#" class="bignav"  >综合设置</a></li>
+<li><a href="admin.php?action=datastore&ctrl=display" target="mainFrame">导入导出</a></li>
+<li><a href="admin.php?action=config&ctrl=display"  target="mainFrame" >网站设置</a></li>
+<!-- end -->
+<li><a href="../" target="_blank">网站首页</a></li>
+
+<li><a href="#" class="bignav" >个人管理</a></li>
+<li><a href="admin.php?action=user&ctrl=mod" target="mainFrame">账户修改</a></li>
+<li><a href="admin.php?action=frame&ctrl=logout"  >退出登录</a></li>
+</ul>
+</body>
+</html>
+

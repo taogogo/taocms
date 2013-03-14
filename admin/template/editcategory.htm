@@ -1,0 +1,83 @@
+{inc:header}
+<form action="admin.php" method="post">
+ <table width="699" border="0" cellspacing="0" cellpadding="1" class="addtable">
+    <tr>
+      <td width="87" scope="col">栏目名称:</td>
+      <td width="608" scope="col"><input name="name" type="text" id="name"  value="{o['name']}"/></td>
+    </tr>
+	<tr>
+      <td width="87" scope="col">栏目别名:</td>
+      <td width="608" scope="col"><input name="nickname" type="text" id="nickname"  value="{o['nickname']}"/></td>
+    </tr>
+	<tr>
+      <td width="87" scope="col">上级栏目:</td>
+      <td width="608" scope="col"><SELECT  name="fid" id="fid">
+	<option value="">未分组</option>
+	<!-- $category AS $atl -->
+	<option value="{atl['id']}"  <!-- if($atl['id']==$o['fid']) -->selected<!-- end -->  >{atl['name']}</option>
+	<!-- END -->  
+	</SELECT></td>
+    </tr>
+    
+    <tr>
+      <td scope="col">首页模板</td>
+      <td scope="col">
+	  
+	  <SELECT  name="cattpl" id="cattpl">
+	<option value="">默认模板</option>
+	<!-- $tpllist AS $tpls -->
+	<option value="{tpls}"  <!-- if($tpls==$o['cattpl']) -->selected<!-- end -->  >{tpls}</option>
+	<!-- END -->  
+	</SELECT>	  </td>
+    </tr>
+	    <tr>
+      <td scope="col">列表页模板</td>
+      <td scope="col">
+	  
+	  <SELECT  name="listtpl" id="listtpl">
+	<option value="">默认模板</option>
+	<!-- $tpllist AS $tpls -->
+	<option value="{tpls}"  <!-- if($tpls==$o['listtpl']) -->selected<!-- end -->  >{tpls}</option>
+	<!-- END -->  
+	</SELECT>	  </td>
+    </tr>
+	    <tr>
+      <td scope="col">内容页模板</td>
+      <td scope="col">
+	  
+	  <SELECT  name="distpl" id="distpl">
+	<option value="">默认模板</option>
+	<!-- $tpllist AS $tpls -->
+	<option value="{tpls}"  <!-- if($tpls==$o['distpl']) -->selected<!-- end -->  >{tpls}</option>
+	<!-- END -->  
+	</SELECT>	  </td>
+    </tr>
+    <tr>
+      <td width="87" scope="col">栏目描述:</td>
+      <td width="608" scope="col"><textarea name="intro" id="intro">{o['intro']}</textarea></td>
+    </tr>
+	<tr>
+      <td width="87" scope="col">排序:</td>
+      <td width="608" scope="col"><input name="orders" type="text" id="orders" value="{o['orders']}" /></td>
+    </tr>
+	<tr>
+      <td width="87" scope="col">状态:</td>
+      <td width="608" scope="col"><SELECT  name="status" id="status">
+	<option value="0" >隐藏</option>
+	<option value="1" selected >显示</option>
+</SELECT></td>
+    </tr>
+	<tr>
+      <td colspan="2" scope="col">
+<input name="action" type="hidden" value="category" />
+<input name="id" type="hidden" value="{o['id']}" />
+<input name="ctrl" type="hidden" value="{goctrl}" />
+<input type="submit" name="Submit" id="submits" value="提交" /></td>
+    </tr>
+	 </table>
+
+</form>
+<script>
+SelectItemByValue($tao('status'),{o['status']});
+</script>
+{inc:footer}

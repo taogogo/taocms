@@ -1,0 +1,53 @@
+{inc:header}
+<form action="admin.php" method="post">
+ <table width="699" border="0" cellspacing="0" cellpadding="1" class="addtable">
+  <tr>
+      <td width="87" scope="col">用户名:</td>
+      <td width="608" scope="col"><input name="name" type="text" id="name"  value="{o['name']}" /></td>
+    </tr>
+	<tr>
+      <td width="87" scope="col">密码:</td>
+      <td width="608" scope="col"><input name="passwd" type="password" id="passwd" value="{o['passwd']}" /></td>
+    </tr>
+	 <tr>
+      <td width="87" scope="col">权限:</td>
+      <td width="608" scope="col">
+	  <select name="auth_level" id="auth_level" onchange="if(this.value=='admincat'){$tao('auth_cat').style.display='inline';}else{$tao('auth_cat').style.display='none';}">
+         <!-- $admins AS $k=>$v -->
+          <option value="{k}">{v}</option>
+         <!-- END --> 
+        </select>
+		<SELECT  name="auth_cat" id="auth_cat">
+	<option value="">未分组</option>
+	<!-- $category AS $atl -->
+	<option value="{atl['id']}" >{atl['name']}</option>
+	<!-- END -->  
+	</SELECT>	</td>
+    </tr>
+	<tr>
+      <td width="87" scope="col">状态:</td>
+      <td width="608" scope="col"><SELECT  name="status" id="status">
+	<option value="0" >禁用</option>
+	<option value="1" selected >启用</option>
+</SELECT></td>
+    </tr>
+	<tr>
+      <td colspan="2" scope="col">
+<input name="action" type="hidden" value="admin" />
+<input name="id" type="hidden" value="{o['id']}" />
+<input name="ctrl" type="hidden" value="{goctrl}" />
+<input type="submit" name="Submit" id="submits" value="提交" /></td>
+    </tr>
+	 </table>
+
+</form>
+<script>
+SelectItemByValue($tao('status'),{o['status']});
+
+if({o['auth_cat']}){
+$tao('auth_cat').style.display='inline';
+}
+SelectItemByValue($tao('auth_level'),'{o['auth_level']}');
+SelectItemByValue($tao('auth_cat'),'{o['auth_cat']}');
+</script>
+{inc:footer}

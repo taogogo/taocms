@@ -1,0 +1,27 @@
+{inc:header}
+ <div id="bodyLeft">
+	<!--循环开始-->
+	<!-- $articles AS $atl -->
+	<div class="postList" id="post-{atl['id']}">
+		<h2><!-- IF[$atl['orders']] -->[置顶]<!-- END --><a  rel="bookmark" title="Permanent Link to  {atl['name']}" href="{atl['staticurl']}">{atl['name']}</a></h2>
+		<!-- IF[!$atl['orders']] --><div class="listEntry">{run:}echo Base::cutStr($atl['content'],360){/run}</div><!-- END -->
+		<div class="listDetal">发布时间:<span class="listDate">{run:}echo date("Y-m-d",$atl['times']);{/run}</span> | 
+		{run:}$dispcat=$cats[$atl['cat']];{/run}
+		类别:<a href="{cats[$atl['cat']]['staticurl']}">{cats[$atl['cat']]['name']}</a> | 阅读:{atl['views']} | 评论:{atl['cmtcount']} |
+		标签:{run:}$tagarray=explode(',',$atl['tags']);{/run}<!-- $tagarray AS $tag --><a href="{weburl}?tag={run:}echo urlencode($tag);{/run}">{tag}</a> <!-- END --> 
+		</div>
+	</div>
+	<!-- END -->  
+	<!-- 用于判断提示检测的方法$_i==0 -->  
+<!-- IF[$_i==0] -->  
+<font color="#800000">抱歉，系统内没有文章!</font>  
+<!-- END --> 
+	<!--循环结束-->
+	
+	<div class="navigation">
+		<!-- if($page!=0) --><div class="floatLeft"><a href="{weburl}index.php?p={uppage}">&laquo; 上一页</a></div><!-- end -->
+		<!-- if($downpage!=$page) --><div class="floatRight"><a href="{weburl}index.php?p={downpage}">下一页 &raquo;</a></div><!-- end -->
+	</div>
+ </div>
+{inc:sidebar}
+{inc:footer}

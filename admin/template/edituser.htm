@@ -1,0 +1,15 @@
+{inc:header}
+<form action="admin.php" method="post">
+<table width="699" border="0" cellspacing="0" cellpadding="1" class="addtable">
+    <tr>
+      <td width="87" scope="col">密码</td>
+      <td width="608" scope="col"><input name="pwd" type="password" id="pwd" value="{o[0]['passwd']}" /></td>
+    </tr>
+	<tr>
+      <td colspan="2" scope="col"><input name="action" type="hidden" value="user" />
+<input name="ctrl" type="hidden" value="update" />
+<input type="submit" name="Submit" id="submits" value="修改!" /></td>
+    </tr>
+</table>
+</form>
+{inc:footer}

@@ -1,0 +1,67 @@
+	<h3 id="comments" class="cat_heading" >&#8220;{atl['name']}&#8221;共有{cmtotal}条留言  </h3>
+
+	<ol class="commentlist" id="commentlist" >
+	<!-- $comments AS $cot -->
+
+		<li class="co_1" id="comment-{cot['id']}}">
+		<div class="gravatar"><img height="50" width="50" class="avatar avatar-50" src="{run:}
+if ( !empty($cot['emails']) ) { 
+    $md5 = md5($cot['emails']);
+    $default = urlencode( WEBURL.'images/noemail.jpg' ); 
+    echo 'http://www.gravatar.com/avatar.php?gravatar_id='.$md5.'&amp;size=60&amp;default='.$default;
+}
+		{/run}" alt=""/></div>
+		<div class="comment-entry">
+			<cite>
+			<!-- IF[$cot['websites']] -->   
+<a href="{cot['websites']}" target="_blank" rel="external nofollow" >{cot['name']}</a>
+<!-- ELSE -->
+{cot['name']}
+<!-- END -->
+
+			</cite>
+			<small>@{run:}echo date('Y-m-d H:i',$cot['times']);{/run} <a href="#commentarea" onclick="return backcomment('{cot['name']}');">回复</a> </small>
+			<p class="comment-content">{cot['content']}</p>
+			
+		</div>
+		<div style="clear:both"></div>
+		</li>
+<!-- END -->  
+<li id="commentAdd"></li>
+	</ol>
+<div id="commentsnavi">
+<!--分页敬请期待-->
+</div>
+<h3 id="respond">发表评论</h3>
+<form action="{weburl}api.php" method="post" id="commentform" onsubmit="return subcmt();" >
+<div class="alignleft">
+<p>
+<small>姓名: </small>
+<label><input type="text" name="name" id="name"  size="25" tabindex="1" /></label>
+</p>
+
+<p>
+<small>邮箱: </small>
+<label><input type="text" name="emails" id="emails"  size="25" tabindex="2" /></label>
+</p>
+
+<p>
+<small>网址:</small>
+<label><input type="text" name="websites" id="websites"  size="25" tabindex="3" /></label>
+</p>
+<p>
+<small>验证码:</small>
+<label id="antiarea"><script src="{weburl}api.php?action=comment&ctrl=code"></script></label>
+</p>
+<p>
+  
+ <label> <input type="hidden" name="article_id" id="article_id" value="{atl['id']}" />
+ <input type="hidden" name="ctrl" id="ctrl" value="save" />
+ <input type="hidden" name="action" id="action" value="comment" /></label>
+</p>
+<p><label><textarea name="comment" id="comment" tabindex="5"  ></textarea>
+<input name="submit" type="submit"  class="corner" id="submit" tabindex="6" value="提交评论" /></label>
+</p>
+
+</div>
+</form>

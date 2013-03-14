@@ -1,0 +1,23 @@
+{inc:header}
+<script type="text/javascript" src="images/tinyeditor.js"></script>
+<script type="text/javascript" src="images/common.js"></script>
+<div class="searchban">
+当前文件地址:<input   type="input" value="{path}" disabled="disabled" />【<a href="javascript:void(0)" onclick="history.go(-1)">后退</a>·<a href="javascript:void(0)"  onclick="history.go(+1)">前进</a>·<a href="javascript:void(0)" onclick="window.location.reload();">刷新</a>】
+</div>
+<form action="admin.php" method="post" onsubmit="if($('name').value==''){alert('文章标题必须填写');return false;}">
+
+  <table width="800" border="0" cellspacing="0" cellpadding="1" class="addtable">
+	 <tr>
+      <td colspan="2" scope="col">
+<input name="name" type="hidden" id="name" value="{path}" /><textarea name="filedata" id="filedata" style="width:100%;">{filedata}</textarea></td>
+    </tr>
+	<tr>
+      <td colspan="2" scope="col"><input name="action" type="hidden" value="file" />
+<input name="ctrl" type="hidden" value="save" />
+<input name="path" type="hidden" value="{path}" />
+<input type="submit" name="Submit" id="submits" value="保存" /></td>
+    </tr>
+  </table>
+</form>
+{inc:footer}
+
