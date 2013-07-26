@@ -9,6 +9,11 @@ $id=(array)$_REQUEST['id'];
 if(!Base::checkadmin()&&$ctrl!='login'&&$ctrl!='checkUser'){
 	Base::showmessage('',"index.php?action=login",1);
 }
+$referInfo=parse_url($_SERVER['HTTP_REFERER']);
+$referHost=isset($referInfo['port'])?"{$referInfo['host']}:{$referInfo['port']}":$referInfo['host'];
+if($referHost !== $_SERVER['HTTP_HOST']){
+    Base::showmessage('refer error','admin.php?action=frame&ctrl=logout');
+}
 if(Base::catauth($action)){
 	if(class_exists($action)){
 		$model=new $action($action,$id);
