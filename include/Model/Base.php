@@ -3,7 +3,6 @@ class Base{
 	static function cutStr($string, $sublen=10, $start = 0, $code = 'UTF-8')
 	{
 		$string=strip_tags($string);
-		return mb_substr( $string , $start , $sublen , $code );
 		if($code == 'UTF-8')
 		{
 			$pa = "/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|\xe0[\xa0-\xbf][\x80-\xbf]|[\xe1-\xef][\x80-\xbf][\x80-\xbf]|\xf0[\x90-\xbf][\x80-\xbf][\x80-\xbf]|[\xf1-\xf7][\x80-\xbf][\x80-\xbf][\x80-\xbf]/";
@@ -33,7 +32,16 @@ class Base{
 	}
 	//取得真实ip
 	static function realip(){
-		$ip=$_SERVER["REMOTE_ADDR"];
+		if(getenv('HTTP_CLIENT_IP')){
+			$ip=getenv('HTTP_CLIENT_IP');
+		}elseif(getenv('HTTP_X_FORWARDED_FOR')){
+			$ip=getenv('HTTP_X_FORWARDED_FOR');
+		}elseif(getenv('REMOTE_ADDR')){
+			$ip=getenv('REMOTE_ADDR');
+		}else{
+			$ip=$HTTP_SERVER_VARS['REMOTE_ADDR'];
+		}
+		
 		$ip = long2ip( ip2long( $ip ) );
 		return $ip;
 	}
@@ -68,16 +76,16 @@ class Base{
 		{
 			if ($url){
 				if($url=="-1"){
-					$omsg=$ajax?json_encode(array('msg'=>$msg,'no'=>-1)):"history.go(-1);";
+					$omsg=$ajax?json_encode(array('msg'=>$msg,'no'=>-1)):"javascript:history.go(-1);";
 				}elseif($url=="0"){
-					$omsg=$ajax?json_encode(array('msg'=>$msg,'no'=>0)):"window.close();";
+					$omsg=$ajax?json_encode(array('msg'=>$msg,'no'=>0)):"javascript:window.close();";
 				}else{
-					$omsg=$ajax?json_encode(array('msg'=>$msg,'no'=>1)):"location.href='$url';";
+					$omsg=$ajax?json_encode(array('msg'=>$msg,'no'=>1)):"$url";
 				}
 			}
 			die($ajax?$omsg:'
     <div style="width: 600px; word-wrap: break-word; margin: 20px auto; border: black 4px solid; text-align: center; padding: 20px 4px;background: #EFEFF1;">
-<a href="javascript:'.$omsg.'">'.$msg.'(<font id="percent">'.$time.'</font>秒后跳转，点击马上跳转）</a></div>
+<a id="message_link_id" href="'.$omsg.'">'.$msg.'(<font id="percent">'.$time.'</font>秒后跳转，点击马上跳转）</a></div>
                         
 <script language="javascript"> 
 var bar='.$time.' ;
@@ -87,7 +95,7 @@ function count(){
     if (bar>0){
         setTimeout("count()",1000);
     }else{
-        '.$omsg.'; 
+         document.getElementById("message_link_id").click();
     }  
 }
 count() ;

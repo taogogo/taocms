@@ -149,9 +149,9 @@ class Index{
 		$nowcolums=$cat?'category':'cms';
 		$nowtitle=$cat?'栏目':'页面';
 		$nowvar=$cat?'cat':'id';
-		$tmp=self::$_db->get_one(TB.$nowcolums,'id='.$$nowvar,"staticurl");
+		$tmp=self::$_db->get_one(TB.$nowcolums,'id='.intval($$nowvar),"staticurl");
 		$path=$tmp['staticurl'];
-		$tmp=self::$_db->get_one(TB.$nowcolums,'id<'.$$nowvar,"id");
+		$tmp=self::$_db->get_one(TB.$nowcolums,'id<'.intval($$nowvar),"id");
 		$nextid=$tmp['id'];
 		if (CREATHTML=='1'&&strstr($path,'?')===false) {
 			self::createdata($path);

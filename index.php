@@ -5,6 +5,7 @@ $path=$_SERVER['PATH_INFO'].($_SERVER['QUERY_STRING']?'?'.str_replace('?','',$_S
 if(substr($path, 0,1)=='/'){
 	$path=substr($path,1);
 }
+$path = Base::safeword($path);
 $ctrl=isset($_GET['action'])?$_GET['action']:'run';
 if(isset($_GET['createprocess']))
 {

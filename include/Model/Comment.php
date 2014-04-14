@@ -23,7 +23,7 @@ class Comment extends Article {
 		$data['name']=Base::safeword(Base::safeword($_POST['name'],3),5);
 		$data['emails']=Base::safeword(Base::safeword($_POST['emails'],3),5);
 		$data['websites']=Base::safeword(Base::safeword($_POST['websites'],3),5);
-		$data['content']=Base::safeword( $_POST['comment'] ,5 );
+		$data['content']=Base::safeword( Base::safeword($_POST['comment'],4) ,5 );
 		$data['ips']=Base::realip();
 		$data['times']=Base::getnowtime();
 		$data['status']=1;
@@ -46,8 +46,6 @@ class Comment extends Article {
 				$mem=new Memcached(MEMCACHE);
 				$mem->delete($data['article_id'].'_cms');
 			}
-			//清空本次使用的session变量
-			session_destroy();
 			Base::showmessage("留言成功",$_SERVER['HTTP_REFERER']);
 		}else{
 			showmessage("留言失败，请稍后再试",'-1');
@@ -57,8 +55,6 @@ class Comment extends Article {
 		$fword=rand(0,100);
 		$bword=rand(0,100);
 		if($fword<$bword)list($fword,$bword) = array($bword,$fword);
-		//session_start();
-		//setcookie(session_name() ,session_id(), time() + 60, "/");
 		$_SESSION['antirbt']=$fword-$bword;
 		die('document.getElementById("antiarea").innerHTML=\''.$fword.'-<input type="text" name="antirbt" id="antirbt"  size="4" tabindex="4" />='.$bword.'\'');
 	}
