@@ -11,6 +11,6 @@ if(isset($_GET['createprocess']))
 {
 	Index::createhtml(isset($_GET['id'])?$_GET['id']:0,$_GET['cat'],$_GET['single']);
 }else{
-	Index::$ctrl($path);
+	Index::run($path);
 }
 ?>
