@@ -11,7 +11,7 @@ include(SYS_ROOT.INC.'Model/Template.php');
 include(SYS_ROOT.INC.'Db/'.ucfirst(DB).'.php');
 //执行开始时间
 $GLOBALS['starttime']=Base::getmicrotime();
-$GLOBALS['version']='2.5Beta5.1';
+$GLOBALS['version']='3.0.1';
 //定义常量，防止违法访问
 define("taoCMS!",TRUE);
 define('RUNONSAE',defined( 'SAE_TMP_PATH' ));

@@ -21,6 +21,11 @@ if(file_exists('data/install.lock')){
 }
 	include "config.php";
 	$permits=array();
+	//remote bad words
+	foreach($_POST as $k => $v){
+	$_POST[$k] = preg_replace('/[^ \w\-\!\@\#\$\%\^\&\*\(\)\_\+\=\{\}\[\]\;\:\<\>\,\.\/\?]/', '', $v);
+	}
+
 	$db_name=!empty($_POST['db_name'])?$_POST['db_name']:DB_NAME;
 	$tb=!empty($_POST['tb'])?$_POST['tb']:TB;
 	$db=!empty($_POST['db'])?ucfirst($_POST['db']):DB;
@@ -239,18 +244,19 @@ $nowdb->query('INSERT INTO '.$tb.'cms (name,content,cat,times,orders,status,allo
 	file_put_contents('data/install.lock','');
 	?><center style="font-size:25px;">☺系统安装完毕☺</center><br />默认<font color="red">用户名admin 默认密码tao</font>，请登陆后台后设置网站地址和生成栏目缓存，谢谢(建议安装成功后删除本文件)
 <hr />
-	你可能想去:<a href='./admin' target='_blank'>本站管理后台</a>·<a href='./' target='_blank'>本站网站首页</a> | <a href='http://www.taocms.org' target='_blank'>taoCMS官网</a> <a href='http://taobbs.sinaapp.com/' target='_blank'>taoCMS技术论坛</a>
+	你可能想去:<a href='./admin' target='_blank'>本站管理后台</a>·<a href='./' target='_blank'>本站网站首页</a> | <a href='http://www.taocms.org' target='_blank'>taoCMS官网</a> <a href='http://www.taocms.org/1212.html' target='_blank'>taoCMS技术支持</a>
     <?php 
 	}else{?>
 <center style="font-size:25px;">☺开始安装taoCMS☺</center><br />请根据需要选择Sqlite/Mysql数据库，并按照提示进行配置
 <hr />
 <?php if(!RUNONSAE&&!RUNONBAE){?>
 系统的配置：<?php echo PHP_OS.'['.$_SERVER["SERVER_SOFTWARE"].']'?><hr />
-数据库类型：<select name="db" id="db" onchange="if(this.value=='Mysql'){$('db_name').value='|数据库地址:端口号|用户名|用户密码|数据库名'}else{$('db_name').value='data/blog.db'}">
+数据库类型：<select name="db" id="db" onchange="if(this.value!='Sqlite'){$('db_name').value='|数据库地址:端口号|用户名|用户密码|数据库名'}else{$('db_name').value='data/blog.db'}">
   <option value="Sqlite">sqlite</option>
   <option value="Mysql">mysql</option>
+  <option value="Mysqli">mysqli</option>
 </select>
-(Sqlite<?php if(!function_exists('sqlite_open')){?><font color="red">不支持</font><?php }else{?><font color="green">支持</font><?php }?>，Mysql<?php if(!function_exists('mysql_connect')){?><font color="red">不支持</font><?php }else{?><font color="green">支持</font><?php }?>)
+(Sqlite<?php if(!function_exists('sqlite_open')){?><font color="red">不支持</font><?php }else{?><font color="green">支持</font><?php }?>，Mysql<?php if(!function_exists('mysql_connect')){?><font color="red">不支持</font><?php }else{?><font color="green">支持</font><?php }?>，Mysqli<?php if(!function_exists('mysqli_connect')){?><font color="red">不支持</font><?php }else{?><font color="green">支持</font><?php }?>)
 <hr />
 数据库配置：<input name="db_name" type="text" size="30" id="db_name" value="data/blog.db" />
 <hr />

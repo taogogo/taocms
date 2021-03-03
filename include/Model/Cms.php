@@ -57,7 +57,7 @@ class Cms extends Article {
 		}unset( $this->data['remotepic'] );
 		$status=$this->db->updatelist(TB.$this->table,$this->data,$this->id);
 		$this->createtag($this->id);
-		$this->data=$this->db->get_one(TB."cms","id=".$this->id[0],"*",1);
+		$this->data=$this->db->get_one(TB."cms","id=".intval($this->id[0]),"*",1);
 		$this->createurl($this->data);
 		$this->save2memcache();
 		$this->countcache();
@@ -110,12 +110,12 @@ class Cms extends Article {
 		}
 		$eachpage=EACHPAGE;
 		$addsql=' ';
-		$addsql.=($_GET['name']!='')?(' and name like "%'.$_GET['name'].'%"'):'';;
-		$addsql.=($_GET['cat'])?(' and cat = '.$_GET['cat']):'';
-		$addsql.=($_GET['status']!='')?(' and status = '.$_GET['status']):'';
+		$addsql.=($_GET['name']!='')?(' and name like "%'.Base::safeword( Base::safeword($_GET['name'],4) ,5 ).'%"'):'';;
+		$addsql.=($_GET['cat'])?(' and cat = '.intval($_GET['cat'])):'';
+		$addsql.=($_GET['status']!='')?(' and status = '.intval($_GET['status'])):'';
 		$totaldata=$this->db->getlist(TB."cms",'1=1'.$addsql,"count(*)");
 		$total=$totaldata[0]['count(*)'];
-		$page=$_GET['p'];
+		$page=intval($_GET['p']);
 		$uppage=$page>0?$page-1:0;
 		$downpage=($page+1)*$eachpage<$total?$page+1:$page;
 		$list=$this->db->getlist(TB."cms",'1=1'.$addsql,"*",$eachpage*$page.','.$eachpage,"orders DESC,id DESC");

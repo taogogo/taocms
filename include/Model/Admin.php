@@ -28,7 +28,7 @@ class Admin extends Article{
 		include($this->tpl->myTpl('edit'.$this->table));
 	}
 	function save(){
-		$data=$this->columsdata();
+		$data=$this->columsdatasafe();
 		$mydata=$this->getauth($data);
 		if(strlen($mydata['passwd'])<30){
 			$mydata['passwd']=substr( md5( $mydata['passwd']),0,30);
@@ -37,7 +37,7 @@ class Admin extends Article{
 		Base::execmsg("添加","?action=".$this->table.'&ctrl=lists',$status);
 	}
 	function update(){
-		$data=$this->columsdata();
+		$data=$this->columsdatasafe();
 		$mydata=$this->getauth($data);
 		if(strlen($mydata['passwd'])<30){
 			$mydata['passwd']=substr( md5( $mydata['passwd']),0,30);

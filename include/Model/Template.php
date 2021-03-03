@@ -35,7 +35,7 @@ class Template{
 		$template=file_get_contents('template/'.$tpldir.$tplname.'.htm');
 		if($template=='')Base::showmessage("请确保模板文件存在且有内容(".'template/'.$tpldir.$tplname.'.htm'.")可写！",'');
 		$CompileBasic = array(
-		'/(\{\s*|<!--\s*)inc_php:([a-zA-Z0-9_\[\]\.\,\/\?\=\#\:\;\-\|\^]{5,200})(\s*\}|\s*-->)/eis',
+		//'/(\{\s*|<!--\s*)inc_php:([a-zA-Z0-9_\[\]\.\,\/\?\=\#\:\;\-\|\^]{5,200})(\s*\}|\s*-->)/eis',
 		'/<!--\s*DEL\s*-->/is',
 		'/<!--\s*IF\s*(\[|\()(.+?)(\]|\))\s*-->/is',
 		'/<!--\s*ELSEIF\s*(\[|\()(.+?)(\]|\))\s*-->/is',
@@ -46,18 +46,20 @@ class Template{
 		//article list begin
 		'/<!--\s*taolist([a-z0-9]{0,30})\:\s*(.+?)\s*-->/is',
 		//article list end
+		/*
 		'/\{ET_Inc\:(.+?),(.+?)\}/eis',
 		'/(\{\s*|<!--\s*)lang\:(.+?)(\s*\}|\s*-->)/eis',
 		'/(\{\s*|<!--\s*)row\:(.+?)(\s*\}|\s*-->)/eis',
 		'/(\{\s*|<!--\s*)url(.+?)(\s*\}|\s*-->)/eis',
 		'/(\{\s*|<!--\s*)color\:\s*([\#0-9A-Za-z]+\,[\#0-9A-Za-z]+)(\s*\}|\s*-->)/eis',
+		 */
 		'/(\{\s*|<!--\s*)run\:(\}|\s*-->)\s*(.+?)\s*(\{|<!--\s*)\/run(\s*\}|\s*-->)/is',
 		'/(\{\s*|<!--\s*)run\:(.+?)(\s*\}|\s*-->)/is',
 		'/(\{\s*|<!--\s*)inc\:([^\{\} ]{1,100})(\s*\}|\s*-->)/i',
 		'/\{([a-zA-Z0-9_\'\"\[\]\$\->]{1,100})\}/',
 		);
 		$AnalysisBasic = array(
-		'$this->inc_php("\\2")',
+		//'$this->inc_php("\\2")',
 		'<?php if($ET_Del==true){ ?>',
 		'<?php if(\\2){ ?>',
 		'<?php ;}elseif(\\2){ ?>',
@@ -66,16 +68,19 @@ class Template{
 		'<?php \$_i=0;if(is_array(\\1))foreach(\\1 AS \\3){\$_i++; ?>',
 		'<?php \$_i=0;while(\\1){\$_i++; ?>',
 		'<?php \$_i\\1=0;\$QR\\1 = \$dbit->getquery(TB."\\2"); while(\$list\\1 = $dbit->fetch_array($QR\\1)){\$_i\\1++; ?>',
+		/*
 		'<?php $this->ET_Inc("\\1","\\2"); ?>',
 		'<?php $this->lang("\\2"); ?>',
 		'<?php $this->Row("\\2"); ?>',
 		'<?php $this->Myurl("\\2"); ?>',
 		'<?php $this->Color("\\2"); ?>',
+		 */
 		'<?php ;\\3; ?>',
 		'<?php ;\\2; ?>',
 		'<?php include('.$vars.'->myTpl("\\2","'.$tpldir.'",\''.$vars.'\')); ?>',
 		'<?php ;echo \$\\1; ?>',
 		);
+		$template = preg_replace($CompileBasic, $AnalysisBasic, $template);
 		$template = preg_replace($CompileBasic, $AnalysisBasic, $template);
 		$template=str_replace('images/','template/'.$tpldir.'images/',$template);
 		$cachedir=dirname($cache);

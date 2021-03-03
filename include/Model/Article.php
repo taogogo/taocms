@@ -24,7 +24,7 @@ class Article{
 		Base::execmsg("添加","?action=".$this->table.'&ctrl=lists',$status);
 	}
 	function edit(){
-		$getArray=$this->db->getlist(TB.$this->table,'id='.$this->id[0]);
+		$getArray=$this->db->getlist(TB.$this->table,'id='.intval($this->id[0]));
 		$category=$this->db->getlist(TB.'category',$_SESSION[TB.'admin_cat']?'id='.$_SESSION[TB.'admin_cat']:'1=1');
 		$o=$getArray[0];
 		$goctrl='update';
@@ -54,6 +54,18 @@ class Article{
 		unset($_POST['ctrl']);
 		unset($_POST['id']);
 		unset($_POST['Submit']);
+		return $_POST;
+	}
+
+	function columsdatasafe(){
+		
+		unset($_POST['action']);
+		unset($_POST['ctrl']);
+		unset($_POST['id']);
+		unset($_POST['Submit']);
+		foreach($_POST as $k => $v){
+		$_POST[$k]=Base::safeword( Base::safeword($v,4) ,5 );
+		}
 		return $_POST;
 	}
 }
