@@ -1,14 +1,24 @@
-taocms
-======
+# taoCMS
 
-taocms is a very very small CMS( Content Management System) ,base on php,support mysql/sqlite.
+# Introduction
+
+taoCMS is an incredible tiny CMS( Content Management System) , writen in PHP(compatible with php5 and php7) and support MySQL/Sqlite(MySQL/MySQLi/Sqlite php extension) as the database.
 
 taoCMS是一个完善支持多数据库(Sqlite/Mysql)的CMS网站内容管理系统，是国内最小的功能完善
 的基于php+SQLite/Mysql的CMS。体积小（仅180Kb）速度快，包含文件管理、数据采集、Memcache整
-合、用户管理等强大功能，跨平台运行，支持SAE、BAE云服务。代码手写采用严格的数据过滤，保证
+合、用户管理等强大功能，跨平台运行，支持SAE、BAE云服务。兼容PHP5和PHP7.代码手写采用严格的数据过滤，保证
 服务器的安全稳定！
 
-##2.5Beta5 released(2.5Beta5版本更新)
+## 3.0.1 released(3.0.1版本更新)
+
+在光大人民群众的呼吁下，在瘦骨嶙峋的作者的努力下，taoCMS升级版出来了，希望大家用的开心，希望更多人能够加入我们。
+
+1. 支持PHP7+
+2. 支持Mysqli PHP扩展
+3. 修复部分群众提交的安全BUG
+
+
+## 2.5Beta5 released(2.5Beta5版本更新)
 
 感谢各位taoCMS用户，是你们的支持和鼓励让taoCMS走的更远！
 十一长假降至，beta5也来啦，算是送给各位的礼物啦。建议各位速速升级到这个版本，beta5之前的版本不再提供安全支持。
@@ -29,7 +39,8 @@ taoCMS是一个完善支持多数据库(Sqlite/Mysql)的CMS网站内容管理系
 14. 修正sqlite的一个特殊字符写入失败错误(感谢Ethan)
 15. 修复安全问题，感谢shack2、kobin97、yy520
 
-##官方支持
+## 官方支持
 
-* [官方网站](http://www.taocms.org/) 
-* [官方论坛](http://taobbs.sinaapp.com/)
+* [官方网站]( http://www.taocms.org/ )
+* [官方支持]( http://www.taocms.org/1212.html )
+* [捐助瘦骨嶙峋的作者] ( http://www.taocms.org/donate.html )
