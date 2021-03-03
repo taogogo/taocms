@@ -41,6 +41,6 @@ taoCMS是一个完善支持多数据库(Sqlite/Mysql)的CMS网站内容管理系
 
 ## 官方支持
 
-* [官方网站]( http://www.taocms.org/ )
-* [官方支持]( http://www.taocms.org/1212.html )
-* [捐助瘦骨嶙峋的作者] ( http://www.taocms.org/donate.html )
+* [官方网站](http://www.taocms.org/)
+* [官方支持](http://www.taocms.org/1212.html)
+* [捐助瘦骨嶙峋的作者](http://www.taocms.org/donate.htm)
