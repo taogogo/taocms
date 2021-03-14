@@ -23,7 +23,7 @@ if(file_exists('data/install.lock')){
 	$permits=array();
 	//remote bad words
 	foreach($_POST as $k => $v){
-	$_POST[$k] = preg_replace('/[^ \w\-\!\@\#\$\%\^\&\*\(\)\_\+\=\{\}\[\]\;\:\<\>\,\.\/\?]/', '', $v);
+	$_POST[$k] = preg_replace('/[^ \w\-\!\@\#\$\%\^\&\*\(\)\_\+\=\{\}\[\]\;\:\<\>\,\.\/\?\|]/', '', $v);
 	}
 
 	$db_name=!empty($_POST['db_name'])?$_POST['db_name']:DB_NAME;
