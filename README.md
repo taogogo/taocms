@@ -1,6 +1,6 @@
 # taoCMS
 
-# Introduction
+# Introduction(taoCMS简介)
 
 taoCMS is an incredible tiny CMS( Content Management System) , writen in PHP(compatible with php5 and php7) and support MySQL/Sqlite(MySQL/MySQLi/Sqlite php extension) as the database.
 
@@ -9,13 +9,21 @@ taoCMS是一个完善支持多数据库(Sqlite/Mysql)的CMS网站内容管理系
 合、用户管理等强大功能，跨平台运行，支持SAE、BAE云服务。兼容PHP5和PHP7.代码手写采用严格的数据过滤，保证
 服务器的安全稳定！
 
-## 3.0.1 released(3.0.1版本更新)
+# Install(taoCMS安装步骤)
+
+1. 下载最新版本
+2. 将代码上传至网站任意目录
+3. 访问install.php，填写数据库配置
+4. 点击安装按钮即可
+
+## 3.0.2 released(3.0.2版本更新)
 
 在光大人民群众的呼吁下，在瘦骨嶙峋的作者的努力下，taoCMS升级版出来了，希望大家用的开心，希望更多人能够加入我们。
 
 1. 支持PHP7+
 2. 支持Mysqli PHP扩展
 3. 修复部分群众提交的安全BUG
+4. 修复安装脚本错误
 
 
 ## 2.5Beta5 released(2.5Beta5版本更新)
